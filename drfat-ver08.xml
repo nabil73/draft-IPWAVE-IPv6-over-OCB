@@ -1,0 +1,2502 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" []>
+<?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
+<?rfc strict="yes" ?>
+<?rfc toc="yes"?>
+<?rfc tocdepth="4"?>
+<?rfc symrefs="yes"?>
+<?rfc sortrefs="yes" ?>
+<?rfc compact="yes" ?>
+<?rfc subcompact="no" ?>
+<?rfc iprnotified="no" ?>
+
+<rfc category="std"
+     docName="draft-ietf-ipwave-ipv6-over-80211ocb-08.txt"
+     ipr="trust200902">
+
+  <!-- category values: std, bcp, info, exp, and historic ipr values:
+       trust200902, noModificationTrust200902,
+       noDerivativesTrust200902, or pre5378Trust200902 you can add the
+       attributes updates="NNNN" and obsoletes="NNNN" they will
+       automatically be output with "(if approved)" -->
+
+  <front>
+
+    <title abbrev="IPv6-over-80211-OCB">
+      Transmission of IPv6 Packets over IEEE 802.11 Networks operating
+      in mode Outside the Context of a Basic Service Set
+      (IPv6-over-80211-OCB)
+    </title>
+
+    <author initials='A.' surname="Petrescu" fullname='Alexandre Petrescu'>
+      <organization>CEA, LIST</organization>
+      <address>
+        <postal>
+          <street>
+            CEA Saclay
+          </street>
+          <city>
+            Gif-sur-Yvette
+          </city>
+          <region>
+            Ile-de-France
+          </region>
+          <code>
+            91190
+          </code>
+          <country>
+            France
+          </country>
+        </postal>
+        <phone>
+          +33169089223
+        </phone>
+        <email>
+          Alexandre.Petrescu@cea.fr
+        </email>
+      </address>
+    </author>
+
+    <author initials='N.' surname="Benamar" fullname='Nabil Benamar'>
+      <organization>Moulay Ismail University</organization>
+      <address>
+        <postal>
+          <street>
+          </street>
+          <city>
+          </city>
+          <region>
+          </region>
+          <code>
+          </code>
+          <country>
+            Morocco
+          </country>
+        </postal>
+        <phone>
+          +212670832236
+        </phone>
+        <email>
+          benamar73@gmail.com
+        </email>
+      </address>
+    </author>
+
+    <!-- <author initials='T.' surname="Leinmueller" fullname='Tim Leinmueller'> -->
+    <!--   <organization>DENSO INTERNATIONAL EUROPE</organization> -->
+    <!--   <address> -->
+    <!--         <postal> -->
+    <!--           <street> -->
+    <!--           </street> -->
+    <!--           <city> -->
+    <!--           </city> -->
+    <!--           <region> -->
+    <!--           </region> -->
+    <!--           <code> -->
+    <!--           </code> -->
+    <!--           <country> -->
+    <!--             Deutschland -->
+    <!--           </country> -->
+    <!--         </postal> -->
+    <!--         <phone> -->
+    <!--         </phone> -->
+    <!--         <email> -->
+    <!--           t.leinmueller@denso-auto.de -->
+    <!--         </email> -->
+    <!--   </address> -->
+    <!-- </author>     -->
+
+    <author initials="J." surname="H�rri" fullname="J�r�me H�rri">
+      <organization>Eurecom</organization>
+      <address>
+        <postal>
+          <street>
+          </street>
+          <city> Sophia-Antipolis
+          </city>
+          <region>
+          </region>
+          <code> 06904
+          </code>
+          <country>
+            France
+          </country>
+        </postal>
+        <phone>
+          +33493008134
+        </phone>
+        <email>
+          Jerome.Haerri@eurecom.fr
+        </email>
+      </address>
+    </author>
+
+   <author fullname="Christian Huitema" initials="C." surname="Huitema">
+      <organization>Private Octopus Inc.</organization>
+      <address>
+        <postal>
+          <street> </street>
+          <city>Friday Harbor</city>
+          <code>98250</code>
+          <region>WA</region>
+          <country>U.S.A.</country>
+        </postal>
+        <email>huitema@huitema.net</email>
+      </address>
+    </author>
+
+    <!-- <author fullname="Christian Huitema" initials="C." surname="Huitema"> -->
+    <!--   <organization>Microsoft</organization> -->
+    <!--   <address> -->
+    <!--     <postal> -->
+    <!--       <street> </street> -->
+    <!--       <city>Redmond</city> -->
+    <!--       <code>98052</code> -->
+    <!--       <region>WA</region> -->
+    <!--       <country>U.S.A.</country> -->
+    <!--     </postal> -->
+    <!--     <email>huitema@microsoft.com</email> -->
+    <!--   </address> -->
+    <!-- </author> -->
+
+    <author fullname="Jong-Hyouk Lee" initials="J.-H." surname="Lee">
+      <organization>
+        Sangmyung University
+      </organization> 
+      <address>
+        <postal> 
+          <street>
+            31, Sangmyeongdae-gil, Dongnam-gu
+          </street> 
+          <code>
+            31066
+          </code>
+          <city>
+            Cheonan
+          </city> 
+          <country>
+            Republic of Korea
+          </country>
+        </postal>        
+        <email>
+          jonghyouk@smu.ac.kr
+        </email> 
+      </address>        
+    </author>
+
+    <author initials="T." surname="Ernst" fullname="Thierry Ernst">
+      <organization>YoGoKo</organization>
+      <address>
+        <postal>
+          <street>
+          </street>
+          <city>
+          </city>
+          <region>
+          </region>
+          <code>
+          </code>
+          <country>
+            France
+          </country>
+        </postal>
+        <phone>
+        </phone>
+        <email>
+          thierry.ernst@yogoko.fr
+        </email>
+      </address>
+    </author>
+
+    <author initials="T." surname="Li" fullname="Tony Li">
+      <organization>Peloton Technology</organization>
+      <address>
+        <postal>
+          <street>
+            1060 La Avenida St.
+          </street>
+          <city>Mountain View</city>
+          <region>
+            California
+          </region>
+          <code>
+            94043
+          </code>
+          <country>
+            United States
+          </country>
+        </postal>
+        <phone>
+          +16503957356
+        </phone>
+        <email>
+          tony.li@tony.li
+        </email>
+      </address>
+    </author>        
+    <date/>
+
+    <!-- Meta-data Declarations -->
+
+    <area>Internet</area>
+
+    <workgroup>Network Working Group</workgroup>
+
+    <!-- WG name at the upperleft corner of the doc, IETF is fine for
+         individual submissions.  If this element is not present, the
+         default is "Network Working Group", which is used by the RFC
+         Editor as a nod to the history of the IETF. -->
+
+    <keyword>
+      IPv6 over 802.11p, OCB, IPv6 over 802.11-OCB
+    </keyword>
+
+    <!-- Keywords will be incorporated into HTML output files in a
+         meta tag but they have no effect on text or nroff output. If
+         you submit your draft to the RFC Editor, the keywords will be
+         used for the search engine. -->
+
+    <abstract>
+      <t>
+        In order to transmit IPv6 packets on IEEE 802.11 networks
+        running outside the context of a basic service set (OCB,
+        earlier "802.11p") there is a need to define a few parameters
+        such as the supported Maximum Transmission Unit size on the
+        802.11-OCB link, the header format preceding the IPv6 header,
+        the Type value within it, and others.  This document describes
+        these parameters for IPv6 and IEEE 802.11-OCB networks; it
+        portrays the layering of IPv6 on 802.11-OCB similarly to other
+        known 802.11 and Ethernet layers - by using an Ethernet
+        Adaptation Layer.
+      </t>
+      <t>
+        In addition, the document lists what is different in
+        802.11-OCB (802.11p) links compared to more 'traditional'
+        802.11a/b/g/n links, where IPv6 protocols operate without
+        issues.  Most notably, the operation outside the context of a
+        BSS (OCB) impacts IPv6 handover behaviour and IPv6 security.
+      </t>
+    </abstract>
+  </front>
+
+  <middle>
+    <section title="Introduction">
+      <t>
+        This document describes the transmission of IPv6 packets on
+        IEEE Std 802.11-OCB networks (a.k.a 802.11p) <xref
+        target="IEEE-802.11-2016"/>.  This involves the layering of
+        IPv6 networking on top of the IEEE 802.11 MAC layer (with an
+        LLC layer).  Compared to running IPv6 over the Ethernet MAC
+        layer, there is no modification expected to IEEE Std 802.11
+        MAC and Logical Link sublayers: IPv6 works fine directly over
+        802.11-OCB too (with an LLC layer).
+      </t>
+
+      <t>
+        The term "802.11p" is an earlier definition.  The behaviour of
+        "802.11p" networks is rolled in the document IEEE Std
+        802.11-2016.  In that document the term 802.11p disappears.
+        Instead, each 802.11p feature is conditioned by the Management
+        Information Base (MIB) attribute "OCBActivated".  Whenever
+        OCBActivated is set to true the IEEE Std 802.11 OCB state is
+        activated.  For example, an 802.11 STAtion operating outside
+        the context of a basic service set has the OCBActivated flag
+        set.  Such a station, when it has the flag set, uses a BSS
+        identifier equal to ff:ff:ff:ff:ff:ff.
+      </t>
+
+      <t>
+        The IPv6 network layer operates on 802.11-OCB in the same
+        manner as it operates on 802.11 WiFi, with a few particular
+        exceptions.  The IPv6 network layer operates on WiFi by
+        involving an Ethernet Adaptation Layer; this Ethernet
+        Adaptation Layer maps 802.11 headers to Ethernet II headers.
+        The operation of IP on Ethernet is described in <xref
+        target='RFC1042'/>, <xref target='RFC2464'/> and <xref
+        target='I-D.hinden-6man-rfc2464bis'/>.  The situation of IPv6
+        networking layer on Ethernet Adaptation Layer is illustrated
+        below:
+      </t>
+      <t> 
+        <figure align="center">
+          <artwork align="center">
+            <![CDATA[
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |                 IPv6                  |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |       Ethernet Adaptation Layer       |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |             802.11 WiFi MAC           |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |             802.11 WiFi PHY           |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+            ]]>
+          </artwork>
+        </figure>
+      </t>
+
+      <t>
+	(in the above figure, a WiFi profile is represented; this is
+	used also for OCB profile.)
+      </t>
+
+      <t>
+        A more theoretical and detailed view of layer stacking, and
+        interfaces between the IP layer and 802.11-OCB layers, is
+        illustrated below.  The IP layer operates on top of the
+        EtherType Protocol Discrimination (EPD); this Discrimination
+        layer is described in IEEE Std 802.3-2012; the interface
+        between IPv6 and EPD is the LLC_SAP (Link Layer Control
+        Service Access Point).
+      </t>
+
+      <t> 
+        <figure align="center">
+          <artwork align="center">
+            <![CDATA[
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |                 IPv6                  |
+ +-+-+-+-+-+-{            }+-+-+-+-+-+-+-+
+             {   LLC_SAP  }                 802.11-OCB
+ +-+-+-+-+-+-{            }+-+-+-+-+-+-+-+  Boundary
+ |            EPD          |       |     |
+ |                         | MLME  |     |
+ +-+-+-{  MAC_SAP   }+-+-+-|  MLME_SAP   |
+ |      MAC Sublayer       |       |     |  802.11-OCB
+ |     and ch. coord.      |       | SME |  Services
+ +-+-+-{   PHY_SAP  }+-+-+-+-+-+-+-|     |
+ |                         | PLME  |     |
+ |            PHY Layer    |   PLME_SAP  |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+            ]]>
+          </artwork>
+        </figure>
+      </t>
+
+      <t>
+	In addition to the description of interface between IP and MAC
+	using "Ethernet Adaptation Layer" and "Ethernet Protocol
+	Discrimination (EPD)" it is worth mentioning that SNAP <xref
+	target='RFC1042'/> is used to carry the IPv6 Ethertype.
+      </t>
+
+      <t>
+        However, there may be some deployment considerations helping
+        optimize the performances of running IPv6 over 802.11-OCB
+        (e.g. in the case of handovers between 802.11-OCB-enabled
+        access routers, or the consideration of using the IP security
+        architecture <xref target='RFC4301'/>).
+      </t>
+
+      <t>
+	There are currently no specifications for handover between OCB
+	links since these are currently specified as LLC-1 links (i.e.
+	connectionless).  Any handovers must be performed above the
+	Data Link Layer.  To realize handovers between OCB links there
+	is a need for specific indicators to assist in the handover
+	process.  The indicators may be IP Router Advertisements, or
+	802.11-OCB's Time Advertisements, or application-layer data.
+	However, this document does not describe handover behaviour.
+      </t>
+
+      <t>
+	The OCB operation is stripped off of all existing 802.11
+	link-layer security mechanisms.  There is no encryption
+	applied below the network layer running on 802.11-OCB.  At
+	application layer, the IEEE 1609.2 document <xref
+	target="IEEE-1609.2"/> does provide security services for
+	certain applications to use; application-layer mechanisms are
+	out-of-scope of this document.  On another hand, a security
+	mechanism provided at networking layer, such as IPsec <xref
+	target="RFC4301"/>, may provide data security protection to a
+	wider range of applications.  See the section Security
+	Considerations of this document, <xref target="Security"/>
+      </t>
+
+      <t>
+        We briefly introduce the vehicular communication scenarios
+        where IEEE 802.11-OCB links are used.  This is followed by a
+        description of differences in specification terms, between
+        802.11-OCB and 802.11a/b/g/n - we answer the question of what
+        are the aspects introduced by OCB mode to 802.11; the same
+        aspects, but expressed in terms of requirements to
+        implementation, are listed in <xref
+        target="software-changes"/>.)
+      </t>
+
+      <t>
+        The document then concentrates on the parameters of layering
+        IP over 802.11-OCB as over Ethernet: value of MTU, the Frame
+        Format which includes a description of an Ethernet Adaptation
+        Layer, the forming of Link-Local Addresses the rules for
+        forming Interface Identifiers for Stateless Autoconfiguration,
+        the mechanisms for Address Mapping.  These are precisely the
+        same as IPv6 over Ethernet <xref target="RFC2464"/>.  A
+        reference is made to ad-hoc networking characteristics of the
+        subnet structure in OCB mode.
+      </t>
+      <t>
+        As an example, these characteristics of layering IPv6 straight
+        over LLC over 802.11-OCB MAC are illustrated by dissecting an
+        IPv6 packet captured over a 802.11-OCB link; this is described
+        in the section <xref target="impl-status"/>.
+      </t>
+      
+      <t>
+        In the published literature, many documents describe aspects
+        related to running IPv6 over 802.11-OCB: <xref
+        target='I-D.jeong-ipwave-vehicular-networking-survey'/>.
+      </t>        
+
+    </section>
+    
+    <section title="Terminology">
+      <t>
+        The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+        "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+        document are to be interpreted as described in
+        <xref target="RFC2119">RFC 2119</xref>.
+      </t>
+
+      <t>
+	OBRU (On-Board Router Unit): an OBRU is almost always situated
+	in a vehicle; it is a computer with at least two IP
+	interfaces; at least one IP interface runs in OCB mode of
+	802.11.  It MAY be an IP Router.
+      </t>
+
+      <t>
+        RSRU (Road-Side Router Unit): an RSRU is almost always
+        situated in a box fixed along the road.  An RSRU has at least
+        two distinct IP-enabled interfaces; at least one interface is
+        operated in mode OCB of IEEE 802.11 and is IP-enabled.  An
+        RSRU is similar to a Wireless Termination Point (WTP), as
+        defined in <xref target='RFC5415'/>, or an Access Point (AP),
+        as defined in IEEE documents, or an Access Network Router
+        (ANR) defined in <xref target="RFC3753"/>, with one key
+        particularity: the wireless PHY/MAC layer of at least one of
+        its IP-enabled interfaces is configured to operate in
+        802.11-OCB mode.  The RSRU communicates with the On board Unit
+        (OBRU) in the vehicle over 802.11 wireless link operating in
+        OCB mode.  An RSRU MAY be connected to the Internet, and MAY
+        be an IP Router.  When it is connected to the Internet, the
+        term V2I (Vehicle to Internet) is relevant.
+      </t>
+      <t>
+	RSU (Road-Side Unit): an RSU operates in 802.11-OCB mode.  A
+	RSU broadcasts data to OBUs or exchanges data with OBUs in its
+	communications zone.  An RSU may provides channel assignments
+	and operating instructions to OBUs in its communications zone,
+	when required.  The basic functional blocks of an RSU are:
+	internal computer processing, permanent storage capability, an
+	integrated GPS receiver for positioning and timing and an
+	interface that supports both IPv4 and IPv6 connectivity,
+	compliant with 802.3at.  An OCB interface of an RSU MAY be
+	IP-enabled simultaneously to being WAVE-enabled or
+	GeoNetworking-enabled (MAY support simultaneously EtherTypes
+	0x86DD for IPv6 _and_ 0x88DC for WAVE and 0x8947 for
+	GeoNetworking).
+      </t>
+
+      <t>
+        OCB (outside the context of a basic service set - BSS): A mode
+        of operation in which a STA is not a member of a BSS and does
+        not utilize IEEE Std 802.11 authentication, association, or
+        data confidentiality.
+      </t>
+      <t>
+        802.11-OCB: mode specified in IEEE Std 802.11-2016 when the
+        MIB attribute dot11OCBActivited is true.  The OCB mode
+        requires transmission of QoS data frames (IEEE Std 802.11e),
+        half-clocked operation (IEEE Std 802.11j), and use of 5.9 GHz
+        frequency band.
+      </t>
+    </section>
+
+    <section 
+        title="Communication Scenarios where IEEE 802.11-OCB Links are Used"
+        >
+      <t>
+        The IEEE 802.11-OCB Networks are used for vehicular
+        communications, as 'Wireless Access in Vehicular
+        Environments'.  The IP communication scenarios for these
+        environments have been described in several documents; in
+        particular, we refer the reader to <xref
+        target='I-D.petrescu-its-scenarios-reqs'/>, about scenarios
+        and requirements for IP in Intelligent Transportation Systems.
+      </t>
+      <t>
+	The link model is the following: STA --- 802.11-OCB --- STA.
+	In vehicular networks, STAs can be RSRUs and/or OBRUs.  While
+	802.11-OCB is clearly specified, and the use of IPv6 over such
+	link is not radically new, the operating environment
+	(vehicular networks) brings in new perspectives.
+      </t>
+      <t>
+	The 802.11-OCB links form and terminate; nodes connected to
+	these links peer, and discover each other; the nodes are
+	mobile.  However, the precise description of how links
+	discover each other, peer and manage mobility is not given in
+	this document.
+      </t>
+    </section>
+
+    <section title="Aspects introduced by the OCB mode to 802.11">
+      <t>
+        In the IEEE 802.11-OCB mode, all nodes in the wireless range
+        can directly communicate with each other without involving
+        authentication or association procedures.  At link layer, it
+        is necessary to set the same channel number (or frequency) on
+        two stations that need to communicate with each other.
+        Stations STA1 and STA2 can exchange IP packets if they are set
+        on the same channel.  At IP layer, they then discover each
+        other by using the IPv6 Neighbor Discovery protocol.
+      </t>
+      <t>
+	Briefly, the IEEE 802.11-OCB mode has the following
+	properties:
+
+        <list style="symbols">
+          <t> 
+            The use by each node of a 'wildcard' BSSID (i.e., each bit
+            of the BSSID is set to 1)
+          </t>
+          <t> No IEEE 802.11 Beacon frames are transmitted </t>
+          <t> No authentication is required in order to be able to communicate</t>
+          <t> No association is needed in order to be able to communicate</t>
+          <t> No encryption is provided in order to be able to communicate</t>
+          <t> Flag dot11OCBActivated is set to true </t>
+        </list>
+
+	All the nodes in the radio communication range (OBRU and RSRU)
+	receive all the messages transmitted (OBRU and RSRU) within the
+	radio communications range.  The eventual conflict(s) are
+	resolved by the MAC CDMA function.
+      </t>
+      <t>
+        The following message exchange diagram illustrates a
+        comparison between traditional 802.11 and 802.11 in OCB mode.
+        The 'Data' messages can be IP packets such as HTTP or others.
+        Other 802.11 management and control frames (non IP) may be
+        transmitted, as specified in the 802.11 standard.  For
+        information, the names of these messages as currently
+        specified by the 802.11 standard are listed in <xref
+        target="OCB-messages"/>.
+      </t>
+      <t>
+        <figure align="center">
+          <artwork align="center">
+            <![CDATA[
+  STA                    AP              STA1                   STA2
+  |                      |               |                      |
+  |<------ Beacon -------|               |<------ Data -------->|
+  |                      |               |                      |
+  |---- Probe Req. ----->|               |<------ Data -------->|
+  |<--- Probe Res. ------|               |                      |
+  |                      |               |<------ Data -------->|
+  |---- Auth Req. ------>|               |                      |
+  |<--- Auth Res. -------|               |<------ Data -------->|
+  |                      |               |                      |
+  |---- Asso Req. ------>|               |<------ Data -------->|
+  |<--- Asso Res. -------|               |                      |
+  |                      |               |<------ Data -------->|
+  |<------ Data -------->|               |                      |
+  |<------ Data -------->|               |<------ Data -------->|
+
+ (a) 802.11 Infrastructure mode         (b) 802.11-OCB mode
+            ]]>
+          </artwork>
+        </figure>
+      </t>
+      <t>
+	The interface 802.11-OCB was specified in IEEE Std 802.11p
+	(TM) -2010 <xref target="IEEE-802.11p-2010"/> as an amendment
+	to IEEE Std 802.11 (TM) -2007, titled "Amendment 6: Wireless
+	Access in Vehicular Environments".  Since then, this amendment
+	has been included in IEEE 802.11(TM) -2012 and -2016 <xref
+	target="IEEE-802.11-2016"/>.
+      </t>
+      <t>
+	In document 802.11-2016, anything qualified specifically as
+	"OCBActivated", or "outside the context of a basic service"
+	set to be true, then it is actually referring to OCB aspects
+	introduced to 802.11.
+      </t>
+      <t>
+        In order to delineate the aspects introduced by 802.11-OCB to
+        802.11, we refer to the earlier <xref
+        target="IEEE-802.11p-2010"/>.  The amendment is concerned with
+        vehicular communications, where the wireless link is similar
+        to that of Wireless LAN (using a PHY layer specified by
+        802.11a/b/g/n), but which needs to cope with the high mobility
+        factor inherent in scenarios of communications between moving
+        vehicles, and between vehicles and fixed infrastructure
+        deployed along roads.  While 'p' is a letter just like 'a, b,
+        g' and 'n' are, 'p' is concerned more with MAC modifications,
+        and a little with PHY modifications; the others are mainly
+        about PHY modifications.  It is possible in practice to
+        combine a 'p' MAC with an 'a' PHY by operating outside the
+        context of a BSS with OFDM at 5.4GHz and 5.9GHz.
+      </t>
+
+      <t>
+        The 802.11-OCB links are specified to be compatible as much as
+        possible with the behaviour of 802.11a/b/g/n and future
+        generation IEEE WLAN links.  From the IP perspective, an
+        802.11-OCB MAC layer offers practically the same interface to
+        IP as the WiFi and Ethernet layers do (802.11a/b/g/n and
+        802.3).  A packet sent by an OBRU may be received by one or
+        multiple RSRUs.  The link-layer resolution is performed by
+        using the IPv6 Neighbor Discovery protocol.
+      </t>
+
+      <t>
+        To support this similarity statement (IPv6 is layered on top
+        of LLC on top of 802.11-OCB, in the same way that IPv6 is
+        layered on top of LLC on top of 802.11a/b/g/n (for WLAN) or
+        layered on top of LLC on top of 802.3 (for Ethernet)) it is
+        useful to analyze the differences between 802.11-OCB and
+        802.11 specifications.  During this analysis, we note that
+        whereas 802.11-OCB lists relatively complex and numerous
+        changes to the MAC layer (and very little to the PHY layer),
+        there are only a few characteristics which may be important
+        for an implementation transmitting IPv6 packets on 802.11-OCB
+        links.
+      </t>
+
+      <t>
+        The most important 802.11-OCB point which influences the IPv6
+        functioning is the OCB characteristic; an additional, less
+        direct influence, is the maximum bandwidth afforded by the PHY
+        modulation/demodulation methods and channel access specified
+        by 802.11-OCB.  The maximum bandwidth theoretically possible
+        in 802.11-OCB is 54 Mbit/s (when using, for example, the
+        following parameters: 20 MHz channel; modulation 64-QAM;
+        codint rate R is 3/4); in practice of IP-over-802.11-OCB a
+        commonly observed figure is 12Mbit/s; this bandwidth allows
+        the operation of a wide range of protocols relying on IPv6.
+      </t>
+
+      <t>
+        <list style='symbols'>
+          <t>
+            Operation Outside the Context of a BSS (OCB): the (earlier
+            802.11p) 802.11-OCB links are operated without a Basic
+            Service Set (BSS).  This means that the frames IEEE 802.11
+            Beacon, Association Request/Response, Authentication
+            Request/Response, and similar, are not used.  The used
+            identifier of BSS (BSSID) has a hexadecimal value always
+            0xffffffffffff (48 '1' bits, represented as MAC address
+            ff:ff:ff:ff:ff:ff, or otherwise the 'wildcard' BSSID), as
+            opposed to an arbitrary BSSID value set by administrator
+            (e.g. 'My-Home-AccessPoint').  The OCB operation - namely
+            the lack of beacon-based scanning and lack of
+            authentication - should be taken into account when the
+            Mobile IPv6 protocol <xref target='RFC6275'/> and the
+            protocols for IP layer security <xref target='RFC4301'/>
+            are used.  The way these protocols adapt to OCB is not
+            described in this document.
+          </t>
+          <t>
+            Timing Advertisement: is a new message defined in
+            802.11-OCB, which does not exist in 802.11a/b/g/n.  This
+            message is used by stations to inform other stations about
+            the value of time.  It is similar to the time as delivered
+            by a GNSS system (Galileo, GPS, ...) or by a cellular
+            system.  This message is optional for implementation.
+          </t>              
+          <t>
+            Frequency range: this is a characteristic of the PHY
+            layer, with almost no impact on the interface between MAC
+            and IP.  However, it is worth considering that the
+            frequency range is regulated by a regional authority
+            (ARCEP, ETSI, FCC, etc.); as part of the regulation
+            process, specific applications are associated with
+            specific frequency ranges.  In the case of 802.11-OCB, the
+            regulator associates a set of frequency ranges, or slots
+            within a band, to the use of applications of vehicular
+            communications, in a band known as "5.9GHz".  The 5.9GHz
+            band is different from the 2.4GHz and 5GHz bands used by
+            Wireless LAN.  However, as with Wireless LAN, the
+            operation of 802.11-OCB in "5.9GHz" bands is exempt from
+            owning a license in EU (in US the 5.9GHz is a licensed
+            band of spectrum; for the fixed infrastructure an explicit
+            FCC autorization is required; for an onboard device a
+            'licensed-by-rule' concept applies: rule certification
+            conformity is required); however technical conditions are
+            different than those of the bands "2.4GHz" or "5GHz".  On
+            one hand, the allowed power levels, and implicitly the
+            maximum allowed distance between vehicles, is of 33dBm for
+            802.11-OCB (in Europe), compared to 20 dBm for Wireless
+            LAN 802.11a/b/g/n; this leads to a maximum distance of
+            approximately 1km, compared to approximately 50m.  On the
+            other hand, specific conditions related to congestion
+            avoidance, jamming avoidance, and radar detection are
+            imposed on the use of DSRC (in US) and on the use of
+            frequencies for Intelligent Transportation Systems (in
+            EU), compared to Wireless LAN (802.11a/b/g/n).
+          </t>
+          <t>
+            'Half-rate' encoding: as the frequency range, this
+            parameter is related to PHY, and thus has not much
+            impact on the interface between the IP layer and the
+            MAC layer.
+          </t>
+          <t>
+            In vehicular communications using 802.11-OCB links, there
+            are strong privacy requirements with respect to
+            addressing.  While the 802.11-OCB standard does not
+            specify anything in particular with respect to MAC
+            addresses, in these settings there exists a strong need
+            for dynamic change of these addresses (as opposed to the
+            non-vehicular settings - real wall protection - where
+            fixed MAC addresses do not currently pose some privacy
+            risks).  This is further described in section <xref
+            target="Security"/>.  A relevant function is described in
+            IEEE 1609.3-2016 <xref target="IEEE-1609.3"/>, clause 5.5.1
+            and IEEE 1609.4-2016 <xref target="IEEE-1609.4"/>, clause
+            6.7.
+          </t>
+        </list>
+
+        Other aspects particular to 802.11-OCB, which are also
+        particular to 802.11 (e.g. the 'hidden node' operation), may
+        have an influence on the use of transmission of IPv6 packets
+        on 802.11-OCB networks.  The OCB subnet structure is described
+        in section <xref target="subnet-structure"/>.
+      </t>
+      
+    </section>
+
+    <section 
+        title="Layering of IPv6 over 802.11-OCB as over Ethernet">
+      <t>
+      </t>
+      <section title="Maximum Transmission Unit (MTU)"
+	       anchor="MTU">
+        <t>
+          The default MTU for IP packets on 802.11-OCB is 1500 octets.
+          It is the same value as IPv6 packets on Ethernet links, as
+          specified in <xref target="RFC2464"/>.  This value of the
+          MTU respects the recommendation that every link in the
+          Internet must have a minimum MTU of 1280 octets (stated in
+          <xref target="RFC8200"/>, and the recommendations therein,
+          especially with respect to fragmentation).  If IPv6 packets
+          of size larger than 1500 bytes are sent on an 802.11-OCB
+          interface card then the IP stack will fragment.  In case
+          there are IP fragments, the field "Sequence number" of the
+          802.11 Data header containing the IP fragment field is
+          increased.
+        </t>
+        <t>
+          Non-IP packets such as WAVE Short Message Protocol (WSMP)
+          can be delivered on 802.11-OCB links.  Specifications of
+          these packets are out of scope of this document, and do not
+          impose any limit on the MTU size, allowing an arbitrary
+          number of 'containers'.  Non-IP packets such as ETSI
+          GeoNetworking packets have an MTU of 1492 bytes.  The
+          operation of IPv6 over GeoNetworking is specified at <xref
+          target="ETSI-IPv6-GeoNetworking"/>.
+        </t>
+        <!-- <t> -->
+        <!--   The Equivalent Transmit Time on Channel (ETTC) is an IETF -->
+        <!--   concept that may be used as an alternative to the MTU -->
+        <!--   concept.  A rate of transmission may be specified as well. -->
+        <!--   The ETTC, rate and MTU may be in direct relationship. -->
+        <!-- </t> -->
+      </section>
+
+      <section title="Frame Format">
+        <t>
+          IP packets are transmitted over 802.11-OCB as standard
+          Ethernet packets.  As with all 802.11 frames, an Ethernet
+          adaptation layer is used with 802.11-OCB as well.  This
+          Ethernet Adaptation Layer performing 802.11-to-Ethernet is
+          described in <xref target='aal'/>.  The Ethernet Type code
+          (EtherType) for IPv6 is 0x86DD (hexadecimal 86DD, or
+          otherwise #86DD).
+        </t>
+        <t>
+          The Frame format for transmitting IPv6 on 802.11-OCB
+          networks is the same as transmitting IPv6 on Ethernet
+          networks, and is described in section 3 of <xref
+          target='RFC2464'/>.  The frame format for transmitting IPv6
+          packets over Ethernet is illustrated below:
+        </t>
+        <t> 
+          <figure align="center">
+            <artwork align="center">
+              <![CDATA[
+ 0                   1                 
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5         
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |          Destination          |
+ +-                             -+
+ |            Ethernet           |
+ +-                             -+
+ |            Address            |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |             Source            |
+ +-                             -+
+ |            Ethernet           |
+ +-                             -+
+ |            Address            |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |1 0 0 0 0 1 1 0 1 1 0 1 1 1 0 1|
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |             IPv6              |
+ +-                             -+
+ |            header             |
+ +-                             -+
+ |             and               |
+ +-                             -+
+ /            payload ...        /
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ (Each tic mark represents one bit.)
+              ]]>
+            </artwork>
+          </figure>
+        </t>            
+	<t>
+	  Ethernet II Fields:
+	</t>
+	<t>
+          <list style='hanging'>
+	    <t hangText="Destination Ethernet Address"> 
+	      <vspace/>
+	      the MAC destination address.
+	    </t>
+	    <t hangText="Source Ethernet Address">
+	      <vspace/>
+	      the MAC source address.
+	    </t>
+	    <t hangText="1 0 0 0 0 1 1 0 1 1 0 1 1 1 0 1">
+	      <vspace/>
+	      binary representation of the EtherType value 0x86DD.
+	    </t>
+	    <t hangText="IPv6 header and payload">
+	      <vspace/>
+	      the IPv6 packet containing IPv6 header and payload.
+	    </t>
+	  </list>
+	</t>
+
+        <section title='Ethernet Adaptation Layer'
+                 anchor='aal'>
+          <t>
+            In general, an 'adaptation' layer is inserted between a
+            MAC layer and the Networking layer.  This is used to
+            transform some parameters between their form expected by
+            the IP stack and the form provided by the MAC layer.
+            For example, an 802.15.4 adaptation layer may perform
+            fragmentation and reassembly operations on a MAC whose
+            maximum Packet Data Unit size is smaller than the
+            minimum MTU recognized by the IPv6 Networking layer.
+            Other examples involve link-layer address
+            transformation, packet header insertion/removal, and so
+            on.
+          </t>
+          <t>
+            An Ethernet Adaptation Layer makes an 802.11 MAC look
+            to IP Networking layer as a more traditional Ethernet
+            layer.  At reception, this layer takes as input the IEEE
+            802.11 Data Header and the Logical-Link Layer Control
+            Header and produces an Ethernet II Header.  At sending,
+            the reverse operation is performed.
+          </t>
+          <t> 
+            <figure align="center">
+              <artwork align="center">
+                <![CDATA[
+ +--------------------+------------+-------------+---------+-----------+
+ | 802.11 Data Header | LLC Header | IPv6 Header | Payload |.11 Trailer|
+ +--------------------+------------+-------------+---------+-----------+
+  \                               /                         \         /
+    -----------------------------                             --------
+                   ^---------------------------------------------/
+                   |
+           802.11-to-Ethernet Adaptation Layer
+                   |
+                   v
+ +---------------------+-------------+---------+
+ | Ethernet II Header  | IPv6 Header | Payload |
+ +---------------------+-------------+---------+
+                ]]>
+              </artwork>
+            </figure>
+          </t>
+          <t>
+            The Receiver and Transmitter Address fields in the
+            802.11 Data Header contain the same values as the
+            Destination and the Source Address fields in the
+            Ethernet II Header, respectively.  The value of the Type
+            field in the LLC Header is the same as the value of the
+            Type field in the Ethernet II Header.
+          </t>
+	  <t>
+	    The ".11 Trailer" contains solely a 4-byte Frame Check
+	    Sequence.
+	  </t>
+          <t>
+	    The Ethernet Adaptation Layer performs operations in
+	    relation to IP fragmentation and MTU.  One of these
+	    operations is briefly described in section <xref
+	    target="MTU"/>.
+          </t>
+          <t>
+            In OCB mode, IPv6 packets can be transmitted either as
+            "IEEE 802.11 Data" or alternatively as "IEEE 802.11 QoS
+            Data", as illustrated in the figure below.  Some
+            commercial OCB products use 802.11 Data, and others 802.11
+            QoS data.  In the future, both could be used.
+          </t>
+          <t> 
+            <figure align="center">
+              <artwork align="center">
+                <![CDATA[
++--------------------+-------------+-------------+---------+-----------+
+| 802.11 Data Header | LLC Header  | IPv6 Header | Payload |.11 Trailer|
++--------------------+-------------+-------------+---------+-----------+
+
+or
+
++--------------------+-------------+-------------+---------+-----------+
+| 802.11 QoS Data Hdr| LLC Header  | IPv6 Header | Payload |.11 Trailer|
++--------------------+-------------+-------------+---------+-----------+
+                ]]>
+              </artwork>
+            </figure>
+          </t>
+          <t>
+            The distinction between the two formats is given by the
+            value of the field "Type/Subtype".  The value of the field
+            "Type/Subtype" in the 802.11 Data header is 0x0020.  The
+            value of the field "Type/Subtype" in the 802.11 QoS header
+            is 0x0028.
+          </t>
+          <t>
+            The mapping between qos-related fields in the IPv6 header
+            (e.g. "Traffic Class", "Flow label") and fields in the
+            "802.11 QoS Data Header" (e.g. "QoS Control") are not
+            specified in this document.  Guidance for a potential
+            mapping is provided in <xref
+            target='I-D.ietf-tsvwg-ieee-802-11'/>, although it is not
+            specific to OCB mode.
+          </t>
+
+        </section>
+      </section>
+      <section title='Link-Local Addresses'>
+        <t>
+          The link-local address of an 802.11-OCB interface is formed
+          in the same manner as on an Ethernet interface.  This manner
+          is described in section 5 of <xref target='RFC2464'/>.
+          Additionally, if stable identifiers are needed, it is
+          recommended to follow the Recommendation on Stable IPv6
+          Interface Identifiers <xref target="RFC8064"/>.
+          Additionally, if semantically opaque Interface Identifiers
+          are needed, a potential method for generating semantically
+          opaque Interface Identifiers with IPv6 Stateless Address
+          Autoconfiguration is given in <xref target="RFC7217"/>.
+        </t>
+      </section>
+      
+      <section title='Address Mapping'>
+        <t>
+          For unicast as for multicast, there is no change from the
+          unicast and multicast address mapping format of Ethernet
+          interfaces, as defined by sections 6 and 7 of <xref
+          target='RFC2464'/>.  
+        </t>
+
+        <section title='Address Mapping -- Unicast'>
+	  <t>
+	    The procedure for mapping IPv6 unicast addresses into
+	    Ethernet link-layer addresses is described in <xref
+	    target="RFC4861"/>.  The Source/Target Link-layer Address
+	    option has the following form when the link-layer is
+	    Ethernet.
+	  </t>
+	  <t> 
+            <figure align="center">
+              <artwork align="center">
+		<![CDATA[
+ 0                   1
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |     Type      |    Length     |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |                               |
+ +-          Ethernet           -+
+ |                               |
+ +-           Address           -+
+ |                               |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+                ]]>
+              </artwork>
+            </figure>
+          </t>
+
+	  <t>
+	    Option fields:
+	  </t>
+	  
+	  <t>
+	    <list style="hanging">
+	      <t hangText="Type">
+		<vspace/>
+		1 for Source Link-layer address.
+		<vspace/>
+		2 for Target Link-layer address.
+	      </t>
+	      <t hangText="Length">
+		<vspace/> 
+		1 (in units of 8 octets).
+	      </t>
+	      <t hangText="Ethernet Address">
+		<vspace/>
+		The 48 bit Ethernet IEEE 802 address, in canonical bit
+		order.
+	      </t>
+	    </list>
+	  </t>
+        </section>
+
+        <section title="Address Mapping -- Multicast">
+          <t>
+            IPv6 protocols often make use of IPv6 multicast addresses in
+            the destination field of IPv6 headers.  For example, an ICMPv6
+            link-scoped Neighbor Advertisement is sent to the IPv6 address
+            ff02::1 denoted "all-nodes" address.  When transmitting these
+            packets on 802.11-OCB links it is necessary to map the IPv6
+            address to a MAC address.
+          </t>
+          <t>
+            The same mapping requirement applies to the link-scoped
+            multicast addresses of other IPv6 protocols as well.  In
+            DHCPv6, the "All_DHCP_Servers" IPv6 multicast address
+            ff02::1:2, and in OSPF the "All_SPF_Routers" IPv6 multicast
+            address ff02::5, need to be mapped on a multicast MAC address.
+          </t>
+          <t>
+            An IPv6 packet with a multicast destination address DST,
+            consisting of the sixteen octets DST[1] through DST[16], is
+            transmitted to the IEEE 802.11-OCB MAC multicast address whose
+            first two octets are the value 0x3333 and whose last four
+            octets are the last four octets of DST.
+          </t>
+          <t> 
+            <figure align="center">
+              <artwork align="center">
+                <![CDATA[
+	 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	 |0 0 1 1 0 0 1 1|0 0 1 1 0 0 1 1|
+	 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	 |   DST[13]     |   DST[14]     |
+	 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	 |   DST[15]     |   DST[16]     |
+	 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+                ]]>
+              </artwork>
+            </figure>
+          </t>
+          <t>          
+            A Group ID named TBD, of length 112bits is requested to
+            IANA; this Group ID signifies "All 80211OCB Interfaces
+            Address".  Only the least 32 significant bits of this "All
+            80211OCB Interfaces Address" will be mapped to and from a
+            MAC multicast address.
+          </t>
+          <t>
+            Transmitting IPv6 packets to multicast destinations over
+            802.11 links proved to have some performance issues <xref
+            target='I-D.perkins-intarea-multicast-ieee802'/>.  These
+            issues may be exacerbated in OCB mode.  Solutions for
+            these problems should consider the OCB mode of operation.
+          </t>
+        </section>
+
+      </section>
+      <section title='Stateless Autoconfiguration'>
+        <t>
+          The Interface Identifier for an 802.11-OCB interface is
+          formed using the same rules as the Interface Identifier for
+          an Ethernet interface; this is described in section 4 of
+          <xref target='RFC2464'/>.  No changes are needed, but some
+          care must be taken when considering the use of the SLAAC
+          procedure.
+        </t>
+        <t>
+          The bits in the the interface identifier have no generic
+          meaning and the identifier should be treated as an opaque
+          value.  The bits 'Universal' and 'Group' in the identifier
+          of an 802.11-OCB interface are significant, as this is an
+          IEEE link-layer address.  The details of this significance
+          are described in <xref target="RFC7136"/>.
+        </t>
+
+        <t>
+          As with all Ethernet and 802.11 interface identifiers (<xref
+          target='RFC7721'/>), the identifier of an 802.11-OCB
+          interface may involve privacy, MAC address spoofing and IP
+          address hijacking risks.  A vehicle embarking an On-Board
+          Unit whose egress interface is 802.11-OCB may expose itself
+          to eavesdropping and subsequent correlation of data; this
+          may reveal data considered private by the vehicle owner;
+          there is a risk of being tracked; see the privacy
+          considerations described in <xref
+          target="design-considerations"/>.
+        </t>
+        <t>
+          If stable Interface Identifiers are needed in order to form
+          IPv6 addresses on 802.11-OCB links, it is recommended to
+          follow the recommendation in <xref target='RFC8064'/>.
+          Additionally, if semantically opaque Interface Identifiers
+          are needed, a potential method for generating semantically
+          opaque Interface Identifiers with IPv6 Stateless Address
+          Autoconfiguration is given in <xref target="RFC7217"/>.
+        </t>
+      </section>
+
+      <section title='Subnet Structure' anchor='subnet-structure'>
+	<t>
+	  A subnet is formed by the external 802.11-OCB interfaces of
+	  vehicles that are in close range (not their on-board
+	  interfaces).  This ephemeral subnet structure is strongly
+	  influenced by the mobility of vehicles: the 802.11 hidden
+	  node effects appear.  On another hand, the structure of the
+	  internal subnets in each car is relatively stable.
+	</t>
+	<t>
+	  For routing purposes, a prefix exchange mechanism could be
+	  needed between neighboring vehicles.
+	</t>
+        <t>
+          The 802.11 networks in OCB mode may be considered as
+          'ad-hoc' networks.  The addressing model for such networks
+          is described in <xref target='RFC5889'/>.
+        </t>
+	<t>
+	  An addressing model involves several types of addresses,
+	  like Globally-unique Addresses (GUA), Link-Local Addresses
+	  (LL) and Unique Local Addresses (ULA).  The subnet structure
+	  in 'ad-hoc' networks may have characteristics that lead to
+	  difficulty of using GUAs derived from a received prefix, but
+	  the LL addresses may be easier to use since the prefix is
+	  constant.
+	</t>
+
+      </section>
+    </section>
+
+    <!-- Possibly a 'Contributors' section ... -->
+
+    <section anchor="Security" title="Security Considerations">
+      <t>
+        Any security mechanism at the IP layer or above that may be
+        carried out for the general case of IPv6 may also be carried
+        out for IPv6 operating over 802.11-OCB.
+      </t>
+      <t>
+        802.11-OCB does not provide any cryptographic protection,
+        because it operates outside the context of a BSS (no
+        Association Request/Response, no Challenge messages).  Any
+        attacker can therefore just sit in the near range of vehicles,
+        sniff the network (just set the interface card's frequency to
+        the proper range) and perform attacks without needing to
+        physically break any wall.  Such a link is less protected than
+        commonly used links (wired link or protected 802.11).
+      </t>
+
+      <t>
+	The potential attack vectors are: MAC address spoofing, IP
+	address and session hijacking and privacy violation.
+      </t>
+
+      <t>
+        Within the IPsec Security Architecture <xref
+        target="RFC4301"/>, the IPsec AH and ESP headers <xref
+        target="RFC4302"/> and <xref target="RFC4303"/> respectively,
+        its multicast extensions <xref target="RFC5374"/>, HTTPS <xref
+        target="RFC2818"/> and SeND <xref target="RFC3971"/> protocols
+        can be used to protect communications.  Further, the
+        assistance of proper Public Key Infrastructure (PKI) protocols
+        <xref target="RFC4210"/> is necessary to establish
+        credentials.  More IETF protocols are available in the toolbox
+        of the IP security protocol designer.  Certain ETSI protocols
+        related to security protocols in Intelligent Transportation
+        Systems are described in <xref target="ETSI-sec-archi"/>.
+      </t>
+
+      <t>
+        As with all Ethernet and 802.11 interface identifiers, there
+        may exist privacy risks in the use of 802.11-OCB interface
+        identifiers.  Moreover, in outdoors vehicular settings, the
+        privacy risks are more important than in indoors settings.
+        New risks are induced by the possibility of attacker sniffers
+        deployed along routes which listen for IP packets of vehicles
+        passing by.  For this reason, in the 802.11-OCB deployments,
+        there is a strong necessity to use protection tools such as
+        dynamically changing MAC addresses.  This may help mitigate
+        privacy risks to a certain level.  On another hand, it may
+        have an impact in the way typical IPv6 address
+        auto-configuration is performed for vehicles (SLAAC would rely
+        on MAC addresses amd would hence dynamically change the
+        affected IP address), in the way the IPv6 Privacy addresses
+        were used, and other effects.
+      </t>
+
+    </section>    
+
+    <section anchor="IANA" title="IANA Considerations">
+      <t>
+        A Group ID named TBD, of length 112bits is requested to IANA;
+        this Group ID signifies "All 80211OCB Interfaces Address".
+      </t>
+    </section>
+
+    <section anchor="Contributors"
+             title="Contributors">
+      <t>
+        Romain Kuntz contributed extensively about IPv6 handovers
+        between links running outside the context of a BSS (802.11-OCB
+        links).
+      </t>
+      <t>
+        Tim Leinm�ller contributed the idea of the use of IPv6 over
+        802.11-OCB for distribution of certificates.
+      </t>
+      <t>
+        Marios Makassikis, Jos� Santa Lozano, Albin Severinson and
+        Alexey Voronov provided significant feedback on the experience
+        of using IP messages over 802.11-OCB in initial trials.
+      </t>
+      <t>
+        Michelle Wetterwald contributed extensively the MTU
+        discussion, offered the ETSI ITS perspective, and reviewed
+        other parts of the document.
+      </t>
+    </section>
+
+    <section anchor="Acknowledgements"
+             title="Acknowledgements">
+      <t>
+        The authors would like to thank Witold Klaudel, Ryuji
+        Wakikawa, Emmanuel Baccelli, John Kenney, John Moring,
+        Francois Simon, Dan Romascanu, Konstantin Khait, Ralph Droms,
+        Richard 'Dick' Roy, Ray Hunter, Tom Kurihara, Michal Sojka,
+        Jan de Jongh, Suresh Krishnan, Dino Farinacci, Vincent Park,
+        Jaehoon Paul Jeong, Gloria Gwynne, Hans-Joachim Fischer, Russ
+        Housley, Rex Buddenberg, Erik Nordmark, Bob Moskowitz, Andrew
+        (Dryden?), Georg Mayer, Dorothy Stanley, Sandra C�spedes,
+        Mariano Falcitelli, Sri Gundavelli and William Whyte.  Their
+        valuable comments clarified particular issues and generally
+        helped to improve the document.
+      </t>
+      <t>
+        Pierre Pfister, Rostislav Lisovy, and others, wrote 802.11-OCB
+        drivers for linux and described how.
+      </t>
+      <t>
+        For the multicast discussion, the authors would like to thank
+        Owen DeLong, Joe Touch, Jen Linkova, Erik Kline, Brian
+        Haberman and participants to discussions in network working
+        groups.
+      </t>
+      <t>
+        The authours would like to thank participants to the
+        Birds-of-a-Feather "Intelligent Transportation Systems"
+        meetings held at IETF in 2016.
+      </t>
+    </section>
+
+  </middle>
+
+  <!--  *****BACK MATTER ***** -->
+
+  <back>
+    <references title="Normative References">
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.1042"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2464"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2818"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3753"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3963"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3971"
+      ?>
+      <?rfc
+        include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.4086"
+      ?>             
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4210"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4301"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4302"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4303"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4861"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4429"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5374"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5415"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5889"
+      ?>                
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6275"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6775"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7136"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7217"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7721"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8064"
+      ?>
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8200"
+      ?>       
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml3/reference.I-D.ietf-tsvwg-ieee-802-11"
+      ?>
+    </references>
+
+    <references title="Informative References">
+      <reference anchor="IEEE-802.11p-2010" >
+        <front>
+          <title>
+            IEEE Std 802.11p (TM)-2010, IEEE Standard for Information
+            Technology - Telecommunications and information exchange
+            between systems - Local and metropolitan area networks -
+            Specific requirements, Part 11: Wireless LAN Medium Access
+            Control (MAC) and Physical Layer (PHY) Specifications,
+            Amendment 6: Wireless Access in Vehicular Environments;
+            document freely available at URL
+            http://standards.ieee.org/getieee802/download/802.11p-2010.pdf
+            retrieved on September 20th, 2013.
+          </title>
+          <author/>
+          <date/>
+        </front>
+      </reference>
+
+      <reference anchor="IEEE-1609.2">
+        <front>
+          <title>
+	    IEEE SA - 1609.2-2016 - IEEE Standard for Wireless Access
+	    in Vehicular Environments (WAVE) -- Security Services for
+	    Applications and Management Messages.  Example URL
+	    http://ieeexplore.ieee.org/document/7426684/ accessed on
+	    August 17th, 2017.
+          </title>
+          <author/>
+          <date/>
+        </front>
+      </reference>
+
+      <reference anchor="IEEE-1609.3">
+        <front>
+          <title>
+	    IEEE SA - 1609.3-2016 - IEEE Standard for Wireless Access
+	    in Vehicular Environments (WAVE) -- Networking Services.
+	    Example URL http://ieeexplore.ieee.org/document/7458115/
+	    accessed on August 17th, 2017.
+          </title>
+          <author/>
+          <date/>
+        </front>
+      </reference>
+
+      <reference anchor="IEEE-1609.4">
+        <front>
+          <title>
+	    IEEE SA - 1609.4-2016 - IEEE Standard for Wireless Access
+	    in Vehicular Environments (WAVE) -- Multi-Channel
+	    Operation.  Example URL
+	    http://ieeexplore.ieee.org/document/7435228/ accessed on
+	    August 17th, 2017.
+          </title>
+          <author/>
+          <date/>
+        </front>
+      </reference>
+
+      <reference anchor="IEEE-802.11-2016" >
+        <front>
+          <title>
+            IEEE Standard 802.11-2016 - IEEE Standard for Information
+            Technology - Telecommunications and information exchange
+            between systems Local and metropolitan area networks -
+            Specific requirements - Part 11: Wireless LAN Medium
+            Access Control (MAC) and Physical Layer (PHY)
+            Specifications. Status - Active Standard.  Description
+            retrieved freely on September 12th, 2017, at URL
+            https://standards.ieee.org/findstds/standard/802.11-2016.html
+          </title>
+          <author/>
+          <date/>
+        </front>
+      </reference>
+      <reference anchor="ETSI-IPv6-GeoNetworking">
+        <front>
+          <title>
+	    ETSI EN 302 636-6-1 v1.2.1 (2014-05), ETSI, European
+	    Standard, Intelligent Transportation Systems (ITS);
+	    Vehicular Communications; Geonetworking; Part 6: Internet
+	    Integration; Sub-part 1: Transmission of IPv6 Packets over
+	    Geonetworking Protocols.  Downloaded on September 9th,
+	    2017, freely available from ETSI website at URL
+	    http://www.etsi.org/deliver/etsi_en/302600_302699/30263601/01.02.01_60/en_30263601v010201p.pdf
+          </title>
+          <author/>
+          <date/>
+        </front>
+      </reference>
+
+      <reference anchor="ETSI-sec-archi">
+        <front>
+          <title>
+	    ETSI TS 102 940 V1.2.1 (2016-11), ETSI Technical
+	    Specification, Intelligent Transport Systems (ITS);
+	    Security; ITS communications security architecture and
+	    security management, November 2016.  Dowloaded on
+	    September 9th, 2017, freely available from ETSI website at
+	    URL
+	    http://www.etsi.org/deliver/etsi_ts/102900_102999/102940/01.02.01_60/ts_102940v010201p.pdf
+          </title>
+          <author/>
+          <date/>
+        </front>
+      </reference>
+
+      <!-- <reference anchor="fcc-cc" > -->
+      <!--   <front> -->
+      <!--     <title> -->
+      <!--       'Report and Order, Before the Federal Communications -->
+      <!--       Commission Washington, D.C. 20554', FCC 03-324, Released -->
+      <!--       on February 10, 2004, document FCC-03-324A1.pdf, -->
+      <!--       document freely available at URL -->
+      <!--       http://www.its.dot.gov/exit/fcc_edocs.htm downloaded on -->
+      <!--       October 17th, 2013. -->
+      <!--     </title> -->
+      <!--     <author/> -->
+      <!--     <date/> -->
+      <!--   </front> -->
+      <!-- </reference> -->
+
+      <!-- <reference anchor="fcc-cc-172-184" > -->
+      <!--   <front> -->
+      <!--     <title> -->
+      <!--       'Memorandum Opinion and Order, Before the Federal -->
+      <!--       Communications Commission Washington, D.C. 20554', FCC -->
+      <!--       06-10, Released on July 26, 2006, document -->
+      <!--       FCC-06-110A1.pdf, document freely available at URL -->
+      <!--       http://hraunfoss.fcc.gov/edocs_public/attachmatch/FCC-06-110A1.pdf -->
+      <!--       downloaded on June 5th, 2014. -->
+      <!--     </title> -->
+      <!--     <author/> -->
+      <!--     <date/> -->
+      <!--   </front> -->
+      <!-- </reference>         -->
+
+      <!-- <reference anchor="etsi-302663-v1.2.1p-2013" > -->
+      <!--   <front> -->
+      <!--     <title> -->
+      <!--       Intelligent Transport Systems (ITS); Access layer -->
+      <!--       specification for Intelligent Transport Systems -->
+      <!--       operating in the 5 GHz frequency band, 2013-07, document -->
+      <!--       en_302663v010201p.pdf, document freely available at URL -->
+      <!--       http://www.etsi.org/deliver/etsi_en/302600_302699/302663/ -->
+      <!--       01.02.01_60/en_302663v010201p.pdf downloaded on October -->
+      <!--       17th, 2013. -->
+      <!--     </title> -->
+      <!--     <author/> -->
+      <!--     <date/> -->
+      <!--   </front> -->
+      <!-- </reference> -->
+
+      <!-- <reference anchor="etsi-draft-102492-2-v1.1.1-2006" > -->
+      <!--   <front> -->
+      <!--     <title> -->
+      <!--       Electromagnetic compatibility and Radio spectrum Matters -->
+      <!--       (ERM); Intelligent Transport Systems (ITS); Part 2: -->
+      <!--       Technical characteristics for pan European harmonized -->
+      <!--       communications equipment operating in the 5 GHz -->
+      <!--       frequency range intended for road safety and traffic -->
+      <!--       management, and for non-safety related ITS applications; -->
+      <!--       System Reference Document, Draft ETSI TR 102 492-2 -->
+      <!--       V1.1.1, 2006-07, document tr_10249202v010101p.pdf freely -->
+      <!--       available at URL -->
+      <!--       http://www.etsi.org/deliver/etsi_tr/102400_102499/ -->
+      <!--       10249202/01.01.01_60/tr_10249202v010101p.pdf downloaded -->
+      <!--       on October 18th, 2013. -->
+      <!--     </title> -->
+      <!--     <author/> -->
+      <!--     <date/> -->
+      <!--   </front> -->
+      <!-- </reference> -->
+
+      <!-- <reference anchor="TS103097" > -->
+      <!--   <front> -->
+      <!--     <title> -->
+      <!--       Intelligent Transport Systems (ITS); Security; Security -->
+      <!--       header and certificate formats; document freely -->
+      <!--       available at URL -->
+      <!--       http://www.etsi.org/deliver/etsi_ts/103000_103099/103097/01.01.01_60/ts_103097v010101p.pdf -->
+      <!--       retrieved on July 08th, 2016. -->
+      <!--     </title> -->
+      <!--     <author/> -->
+      <!--     <date/> -->
+      <!--   </front> -->
+      <!-- </reference> -->
+      
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml3/reference.I-D.jeong-ipwave-vehicular-networking-survey"
+      ?>
+      
+      <?rfc
+	include="http://xml2rfc.ietf.org/public/rfc/bibxml3/reference.I-D.petrescu-its-scenarios-reqs"
+      ?>
+
+      <?rfc include="http://xml2rfc.ietf.org/public/rfc/bibxml3/reference.I-D.hinden-6man-rfc2464bis" ?>
+
+      <?rfc
+        include="http://xml2rfc.ietf.org/public/rfc/bibxml3/reference.I-D.perkins-intarea-multicast-ieee802"
+      ?>                    
+      
+    </references>
+
+
+    <section anchor='changelog'
+             title='ChangeLog'>
+      <t>
+        The changes are listed in reverse chronological order, most
+        recent changes appearing at the top of the list.
+      </t>
+      <t>
+        From draft-ietf-ipwave-ipv6-over-80211ocb-07 to
+        draft-ietf-ipwave-ipv6-over-80211ocb-08
+        <list style='symbols'>
+	  <t>
+	    Removed the per-channel IPv6 prohibition text.
+	  </t>
+	  <t>
+	    Corrected typographical errors.
+	  </t>
+        </list>        
+      </t>
+      <t>
+        From draft-ietf-ipwave-ipv6-over-80211ocb-06 to
+        draft-ietf-ipwave-ipv6-over-80211ocb-07
+        <list style='symbols'>
+	  <t>
+	    Added new terms: OBRU and RSRU ('R' for Router).  Refined
+	    the existing terms RSU and OBU, which are no longer used
+	    throughout the document.
+	  </t>
+	  <t>
+	    Improved definition of term "802.11-OCB".
+	  </t>
+	  <t>
+	    Clarified that OCB does not "strip" security, but that the
+	    operation in OCB mode is "stripped off of all .11
+	    security".
+	  </t>
+	  <t>
+	    Clarified that theoretical OCB bandwidth speed is 54mbits,
+	    but that a commonly observed bandwidth in IP-over-OCB is
+	    12mbit/s.
+	  </t>
+	  <t>
+	    Corrected typographical errors, and improved some
+	    phrasing.
+	  </t>
+        </list>        
+      </t>
+      <t>
+        From draft-ietf-ipwave-ipv6-over-80211ocb-05 to
+        draft-ietf-ipwave-ipv6-over-80211ocb-06
+        <list style='symbols'>
+	  <t>
+	    Updated references of 802.11-OCB document from -2012 to
+	    the IEEE 802.11-2016.
+	  </t>
+	  <t>
+	    In the LL address section, and in SLAAC section, added
+	    references to 7217 opaque IIDs and 8064 stable IIDs.
+	  </t>
+        </list>        
+      </t>
+      <t>
+        From draft-ietf-ipwave-ipv6-over-80211ocb-04 to
+        draft-ietf-ipwave-ipv6-over-80211ocb-05
+        <list style='symbols'>
+	  <t>
+	    Lengthened the title and cleanded the abstract.
+	  </t>
+	  <t>
+	    Added text suggesting LLs may be easy to use on OCB,
+	    rather than GUAs based on received prefix.
+	  </t>
+	  <t>
+	    Added the risks of spoofing and hijacking.
+	  </t>
+	  <t>
+	    Removed the text speculation on adoption of the TSA
+	    message.
+	  </t>
+	  <t>
+	    Clarified that the ND protocol is used.
+	  </t>
+	  <t>
+	    Clarified what it means "No association needed".
+	  </t>
+	  <t>
+	    Added some text about how two STAs discover each other.
+	  </t>
+	  <t>
+	    Added mention of external (OCB) and internal network
+	    (stable), in the subnet structure section.
+	  </t>
+	  <t>
+	    Added phrase explaining that both .11 Data and .11 QoS
+	    Data headers are currently being used, and may be used in
+	    the future.
+	  </t>
+	  <t>
+	    Moved the packet capture example into an Appendix
+	    Implementation Status.
+	  </t>
+	  <t>
+	    Suggested moving the reliability requirements appendix out
+	    into another document.
+	  </t>
+	  <t>
+	    Added a IANA Consiserations section, with content,
+	    requesting for a new multicast group "all OCB interfaces".
+	  </t>
+	  <t>
+	    Added new OBU term, improved the RSU term definition,
+	    removed the ETTC term, replaced more occurences of
+	    802.11p, 802.11 OCB with 802.11-OCB.
+	  </t>
+	  <t>
+	    References:
+	    <list style='symbols'>
+	      <t>
+		Added an informational reference to ETSI's
+		IPv6-over-GeoNetworking.
+	      </t>
+	      <t>
+		Added more references to IETF and ETSI security protocols.
+	      </t>
+	      <t>
+		Updated some references from I-D to RFC, and from old RFC
+		to new RFC numbers.
+	      </t>
+	      <t>
+		Added reference to multicast extensions to IPsec
+		architecture RFC.
+	      </t>
+	      <t>
+		Added a reference to 2464-bis.
+	      </t>
+	      <t>
+		Removed FCC informative references, because not used.
+	      </t>
+	    </list>
+	  </t>	  
+	  <t> 
+	    Updated the affiliation of one author.
+	  </t>
+	  <t>
+	    Reformulation of some phrases for better readability, and
+	    correction of typographical errors.
+	  </t>
+        </list>        
+      </t>
+      <t>
+        From draft-ietf-ipwave-ipv6-over-80211ocb-03 to
+        draft-ietf-ipwave-ipv6-over-80211ocb-04
+        <list style='symbols'>
+	  <t>
+	    Removed a few informative references pointing to Dx draft
+	    IEEE 1609 documents.
+	  </t>
+	  <t>
+	    Removed outdated informative references to ETSI documents.
+	  </t>
+	  <t>
+	    Added citations to IEEE 1609.2, .3 and .4-2016.
+	  </t>
+	  <t> 
+	    Minor textual issues.
+	  </t>
+        </list>        
+      </t>
+      <t>
+        From draft-ietf-ipwave-ipv6-over-80211ocb-02 to
+        draft-ietf-ipwave-ipv6-over-80211ocb-03
+        <list style='symbols'>
+	  <t>
+	    Keep the previous text on multiple addresses, so remove
+	    talk about MIP6, NEMOv6 and MCoA.
+	  </t>
+	  <t>
+	    Clarified that a 'Beacon' is an IEEE 802.11 frame Beacon.
+	  </t>
+	  <t>
+	    Clarified the figure showing Infrastructure mode and OCB
+	    mode side by side.
+	  </t>
+	  <t>
+	    Added a reference to the IP Security Architecture RFC.
+	  </t>
+	  <t>
+	    Detailed the IPv6-per-channel prohibition paragraph which
+	    reflects the discussion at the last IETF IPWAVE WG
+	    meeting.
+	  </t>
+	  <t>
+	    Added section "Address Mapping -- Unicast".
+	  </t>
+	  <t>
+	    Added the ".11 Trailer" to pictures of 802.11 frames.
+	  </t>
+	  <t>
+	    Added text about SNAP carrying the Ethertype.
+	  </t>
+	  <t>
+	    New RSU definition allowing for it be both a Router and
+	    not necessarily a Router some times.
+	  </t>
+	  <t> 
+	    Minor textual issues.
+	  </t>
+        </list>        
+      </t>
+
+      <t>
+        From draft-ietf-ipwave-ipv6-over-80211ocb-01 to
+        draft-ietf-ipwave-ipv6-over-80211ocb-02
+        <list style='symbols'>
+	  <t> 
+	    Replaced almost all occurences of 802.11p with 802.11-OCB,
+	    leaving only when explanation of evolution was necessary.
+	  </t>
+	  <t>
+	    Shortened by removing parameter details from a paragraph
+	    in the Introduction.
+	  </t>
+	  <t>
+	    Moved a reference from Normative to Informative.
+	  </t>
+	  <t>
+	    Added text in intro clarifying there is no handover spec
+	    at IEEE, and that 1609.2 does provide security services.
+	  </t>
+	  <t>
+	    Named the contents the fields of the EthernetII header
+	    (including the Ethertype bitstring).
+	  </t>
+	  <t>
+	    Improved relationship between two paragraphs describing
+	    the increase of the Sequence Number in 802.11 header upon
+	    IP fragmentation.
+	  </t>
+	  <t>
+	    Added brief clarification of "tracking".
+	  </t>
+        </list>        
+      </t>
+
+      <t>
+        From draft-ietf-ipwave-ipv6-over-80211ocb-00 to
+        draft-ietf-ipwave-ipv6-over-80211ocb-01
+        <list style='symbols'>
+          <t>
+            Introduced message exchange diagram illustrating
+            differences between 802.11 and 802.11 in OCB mode.
+          </t>
+          <t>
+            Introduced an appendix listing for information the set of
+            802.11 messages that may be transmitted in OCB mode.
+          </t>
+          <t>
+            Removed appendix sections "Privacy Requirements",
+            "Authentication Requirements" and "Security Certificate
+            Generation".
+          </t>
+          <t>
+            Removed appendix section "Non IP Communications".
+          </t>
+          <t>
+            Introductory phrase in the Security Considerations
+            section.
+          </t>
+          <t>
+            Improved the definition of "OCB".
+          </t>
+          <t>
+            Introduced theoretical stacked layers about IPv6 and IEEE
+            layers including EPD.
+          </t>
+          <t>
+            Removed the appendix describing the details of prohibiting
+            IPv6 on certain channels relevant to 802.11-OCB.
+          </t>
+          <t>
+            Added a brief reference in the privacy text about a
+            precise clause in IEEE 1609.3 and .4.
+          </t>
+          <t>
+            Clarified the definition of a Road Side Unit.
+          </t>
+          <t>
+            Removed the discussion about security of WSA (because is
+            non-IP).
+          </t>
+          <t>
+            Removed mentioning of the GeoNetworking discussion.
+          </t>
+	  <t>
+	    Moved references to scientific articles to a separate
+	    'overview' draft, and referred to it.
+	  </t>
+        </list>        
+      </t>
+    </section>
+    
+    <section title="Changes Needed on a software driver 802.11a to become a
+                    802.11-OCB driver"
+             anchor="software-changes"> 
+      <t>
+        The 802.11p amendment modifies both the 802.11 stack's
+        physical and MAC layers but all the induced modifications
+        can be quite easily obtained by modifying an existing
+        802.11a ad-hoc stack.
+      </t>
+
+      <t>
+        Conditions for a 802.11a hardware to be 802.11-OCB compliant:
+        <list style='symbols'>
+          <t>
+	    The PHY entity shall be an orthogonal frequency division
+	    multiplexing (OFDM) system.  It must support the frequency
+	    bands on which the regulator recommends the use of ITS
+	    communications, for example using IEEE 802.11-OCB layer,
+	    in France: 5875MHz to 5925MHz.
+          </t>
+          <t>
+	    The OFDM system must provide a "half-clocked" operation
+	    using 10 MHz channel spacings.
+          </t>
+          <t>
+            The chip transmit spectrum mask must be compliant to the
+            "Transmit spectrum mask" from the IEEE 802.11p amendment
+            (but experimental environments tolerate otherwise).
+          </t>
+          <t>
+            The chip should be able to transmit up to 44.8 dBm when
+            used by the US government in the United States, and up to
+            33 dBm in Europe; other regional conditions apply.
+          </t>
+        </list>
+      </t>
+
+      <t>
+        Changes needed on the network stack in OCB mode:
+        <list style='symbols'>
+          <t>
+            Physical layer:
+            <list style='symbols'>
+              <t>
+                The chip must use the Orthogonal Frequency Multiple
+                Access (OFDM) encoding mode.
+              </t>
+              <t>
+                The chip must be set in half-mode rate mode (the
+                internal clock frequency is divided by two).                
+              </t>
+              <t>
+                The chip must use dedicated channels and should allow
+                the use of higher emission powers.  This may require
+                modifications to the local computer file that
+                describes regulatory domains rules, if used by the
+                kernel to enforce local specific restrictions.  Such
+                modifications to the local computer file must respect
+                the location-specific regulatory rules.
+              </t>
+            </list>
+            MAC layer:
+            <list style='symbols'>
+              <t>
+                All management frames (beacons, join, leave, and
+                others) emission and reception must be disabled
+                except for frames of subtype Action and Timing
+                Advertisement (defined below).
+              </t>
+              <t>
+                No encryption key or method must be used.
+              </t>
+              <t>
+                Packet emission and reception must be performed as in
+                ad-hoc mode, using the wildcard BSSID
+                (ff:ff:ff:ff:ff:ff).
+              </t>
+              <t>
+                The functions related to joining a BSS (Association
+                Request/Response) and for authentication
+                (Authentication Request/Reply, Challenge) are not
+                called.
+              </t>
+              <t>
+                The beacon interval is always set to 0 (zero).
+              </t>
+              <t>
+                Timing Advertisement frames, defined in the
+                amendment, should be supported.  The upper layer
+                should be able to trigger such frames emission and to
+                retrieve information contained in received Timing
+                Advertisements.
+              </t>
+            </list>
+          </t>
+        </list>
+      </t>
+    </section>
+    <section title="Design Considerations"
+	     anchor="design-considerations">
+      <t>
+        The networks defined by 802.11-OCB are in many ways similar to
+        other networks of the 802.11 family. In theory, the
+        encapsulation of IPv6 over 802.11-OCB could be very similar to
+        the operation of IPv6 over other networks of the 802.11
+        family.  However, the high mobility, strong link asymmetry and
+        very short connection makes the 802.11-OCB link significantly
+        different from other 802.11 networks. Also, the automotive
+        applications have specific requirements for reliability,
+        security and privacy, which further add to the particularity
+        of the 802.11-OCB link.
+      </t>
+
+      <section title="Vehicle ID" anchor="VID" >
+        <t>
+          In automotive networks it is required that each node is
+          represented uniquely.  Accordingly, a vehicle must be
+          identified by at least one unique identifier.  The current
+          specification at ETSI and at IEEE 1609 identifies a vehicle
+          by its MAC address, which is obtained from the 802.11-OCB
+          Network Interface Card (NIC).
+        </t>
+        <t>
+	  In case multiple 802.11-OCB NICs are present in one car,
+	  implicitely multiple vehicle IDs will be generated.
+	  Additionally, some software generates a random MAC address
+	  each time the computer boots; this constitutes an additional
+	  difficulty.
+	</t>
+	<t>
+	  A mechanim to uniquely identify a vehicle irrespectively to
+	  the multiplicity of NICs, or frequent MAC address
+	  generation, is necessary.
+        </t>
+      </section>
+
+      <section title="Reliability Requirements" anchor="link" >
+	<t>
+	  This section may need to be moved out into a separate
+	  requirements document.
+	</t>
+        <t>
+          The dynamically changing topology, short connectivity,
+          mobile transmitter and receivers, different antenna heights,
+          and many-to-many communication types, make IEEE 802.11-OCB
+          links significantly different from other IEEE 802.11 links.
+          Any IPv6 mechanism operating on IEEE 802.11-OCB link MUST
+          support strong link asymmetry, spatio-temporal link quality,
+          fast address resolution and transmission.
+        </t>
+        <t>
+          IEEE 802.11-OCB strongly differs from other 802.11 systems
+          to operate outside of the context of a Basic Service Set.
+          This means in practice that IEEE 802.11-OCB does not rely on
+          a Base Station for all Basic Service Set management. In
+          particular, IEEE 802.11-OCB SHALL NOT use beacons.  Any IPv6
+          mechanism requiring L2 services from IEEE 802.11 beacons
+          MUST support an alternative service.
+        </t>
+        <t> 
+          Channel scanning being disabled, IPv6 over IEEE 802.11-OCB
+          MUST implement a mechanism for transmitter and receiver to
+          converge to a common channel.
+        </t> 
+        <t> 
+          Authentication not being possible, IPv6 over IEEE 802.11-OCB
+          MUST implement an distributed mechanism to authenticate
+          transmitters and receivers without the support of a DHCP
+          server.
+        </t>
+        <t> 
+          Time synchronization not being available, IPv6 over IEEE
+          802.11-OCB MUST implement a higher layer mechanism for time
+          synchronization between transmitters and receivers without
+          the support of a NTP server.
+        </t>
+        <t> 
+          The IEEE 802.11-OCB link being asymmetric, IPv6 over IEEE
+          802.11-OCB MUST disable management mechanisms requesting
+          acknowledgements or replies.
+        </t>
+        <t> 
+          The IEEE 802.11-OCB link having a short duration time, IPv6
+          over IEEE 802.11-OCB SHOULD implement fast IPv6 mobility
+          management mechanisms.
+        </t>
+      </section>
+      
+      <section title="Multiple interfaces" >
+        <t>
+          There are considerations for 2 or more IEEE 802.11-OCB
+          interface cards per vehicle. For each vehicle taking part in
+          road traffic, one IEEE 802.11-OCB interface card could be
+          fully allocated for Non IP safety-critical communication.
+          Any other IEEE 802.11-OCB may be used for other type of
+          traffic.
+        </t>
+        <t>
+          The mode of operation of these other wireless interfaces is
+          not clearly defined yet. One possibility is to consider each
+          card as an independent network interface, with a specific
+          MAC Address and a set of IPv6 addresses.  Another
+          possibility is to consider the set of these wireless
+          interfaces as a single network interface (not including the
+          IEEE 802.11-OCB interface used by Non IP safety critical
+          communications). This will require specific logic to ensure,
+          for example, that packets meant for a vehicle in front are
+          actually sent by the radio in the front, or that multiple
+          copies of the same packet received by multiple interfaces
+          are treated as a single packet.  Treating each wireless
+          interface as a separate network interface pushes such issues
+          to the application layer.
+        </t>
+
+        <t>
+          Certain privacy requirements imply that if these multiple
+          interfaces are represented by many network interface, a
+          single renumbering event SHALL cause renumbering of all
+          these interfaces. If one MAC changed and another stayed
+          constant, external observers would be able to correlate old
+          and new values, and the privacy benefits of randomization
+          would be lost.
+        </t>
+        <t> 
+          The privacy requirements of Non IP safety-critical
+          communications imply that if a change of pseudonyme occurs,
+          renumbering of all other interfaces SHALL also occur.
+        </t>        
+      </section>
+
+      <section title="MAC Address Generation" >
+        <t>
+          When designing the IPv6 over 802.11-OCB address mapping, we
+          will assume that the MAC Addresses will change during well
+          defined "renumbering events".  The 48 bits randomized MAC
+          addresses will have the following characteristics:
+        </t>
+        <t>
+          <list style="symbols" >
+            <t>
+              Bit "Local/Global" set to "locally admninistered".
+            </t>
+            <t>
+              Bit "Unicast/Multicast" set to "Unicast".
+            </t>
+            <t>
+              46 remaining bits set to a random value, using a random
+              number generator that meets the requirements of <xref
+              target="RFC4086" />.
+            </t>
+          </list>
+        </t>
+        <t>
+          The way to meet the randomization requirements is to retain
+          46 bits from the output of a strong hash function, such as
+          SHA256, taking as input a 256 bit local secret, the
+          "nominal" MAC Address of the interface, and a representation
+          of the date and time of the renumbering event.
+        </t>
+      </section>
+    </section>
+    
+    <section title='IEEE 802.11 Messages Transmitted in OCB mode'
+             anchor="OCB-messages">
+      <t>
+        For information, at the time of writing, this is the list of
+        IEEE 802.11 messages that may be transmitted in OCB mode,
+        i.e. when dot11OCBActivated is true in a STA:
+
+        <list style='symbols'>
+          <t>
+            The STA may send management frames of subtype Action and,
+            if the STA maintains a TSF Timer, subtype Timing
+            Advertisement;
+          </t>
+          <t>
+            The STA may send control frames, except those of subtype
+            PS-Poll, CF-End, and CF-End plus CFAck;
+          </t>
+          <t>
+            The STA may send data frames of subtype Data, Null, QoS
+            Data, and QoS Null.
+          </t>
+        </list>        
+      </t>
+    </section>
+    <section title='Implementation Status'
+             anchor="impl-status">
+      <t>
+	This section describes an example of an IPv6 Packet captured
+	over a IEEE 802.11-OCB link.
+      </t>
+      <t>
+        By way of example we show that there is no modification in the
+        headers when transmitted over 802.11-OCB networks - they are
+        transmitted like any other 802.11 and Ethernet packets.
+      </t>
+      <t>
+        We describe an experiment of capturing an IPv6 packet on an
+        802.11-OCB link.  In this experiment, the packet is an IPv6
+        Router Advertisement.  This packet is emitted by a Router on
+        its 802.11-OCB interface.  The packet is captured on the Host,
+        using a network protocol analyzer (e.g. Wireshark); the
+        capture is performed in two different modes: direct mode and
+        'monitor' mode.  The topology used during the capture is
+        depicted below.
+      </t>
+
+      <t> 
+        <figure align="center">
+          <artwork align="center">
+            <![CDATA[
+		     +--------+                                +-------+
+		     |        |        802.11-OCB Link         |       |
+		     ---| Router |--------------------------------| Host  |
+		     |        |                                |       |
+		     +--------+                                +-------+
+            ]]>
+          </artwork>
+        </figure>
+      </t>
+
+      <t>
+        During several capture operations running from a few moments
+        to several hours, no message relevant to the BSSID contexts
+        were captured (no Association Request/Response, Authentication
+        Req/Resp, Beacon).  This shows that the operation of
+        802.11-OCB is outside the context of a BSSID.
+      </t>
+
+      <t>
+        Overall, the captured message is identical with a capture of
+        an IPv6 packet emitted on a 802.11b interface.  The contents
+        are precisely similar.
+      </t>
+
+      <section title="Capture in Monitor Mode">      
+
+        <t>
+          The IPv6 RA packet captured in monitor mode is illustrated
+          below.  The radio tap header provides more flexibility for
+          reporting the characteristics of frames.  The Radiotap Header
+          is prepended by this particular stack and operating system on
+          the Host machine to the RA packet received from the network
+          (the Radiotap Header is not present on the air).  The
+          implementation-dependent Radiotap Header is useful for
+          piggybacking PHY information from the chip's registers as data
+          in a packet understandable by userland applications using
+          Socket interfaces (the PHY interface can be, for example:
+          power levels, data rate, ratio of signal to noise).
+        </t>
+
+        <t>
+          The packet present on the air is formed by IEEE 802.11 Data
+          Header, Logical Link Control Header, IPv6 Base Header and
+          ICMPv6 Header.
+        </t>
+        <t> 
+          <figure align="center">
+            <artwork align="center">
+              <![CDATA[
+
+Radiotap Header v0
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|Header Revision|  Header Pad   |    Header length              |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         Present flags                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| Data Rate     |             Pad                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+IEEE 802.11 Data Header
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|  Type/Subtype and Frame Ctrl  |          Duration             | 
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                      Receiver Address...                       
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+... Receiver Address           |      Transmitter Address...    
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+... Transmitter Address                                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                            BSS Id...                           
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+... BSS Id                     |  Frag Number and Seq Number   |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+    
+
+Logical-Link Control Header
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|      DSAP   |I|     SSAP    |C| Control field | Org. code...   
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+... Organizational Code        |             Type              |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+IPv6 Base Header
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|Version| Traffic Class |           Flow Label                  |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|         Payload Length        |  Next Header  |   Hop Limit   |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                                                               +
+|                                                               |
++                         Source Address                        +
+|                                                               |
++                                                               +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                                                               +
+|                                                               |
++                      Destination Address                      +
+|                                                               |
++                                                               +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+Router Advertisement
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|     Type      |     Code      |          Checksum             |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| Cur Hop Limit |M|O|  Reserved |       Router Lifetime         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         Reachable Time                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                          Retrans Timer                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|   Options ...
++-+-+-+-+-+-+-+-+-+-+-+-
+              ]]>
+            </artwork>
+          </figure>
+        </t>      
+
+        <t>
+          The value of the Data Rate field in the Radiotap header is set
+          to 6 Mb/s.  This indicates the rate at which this RA was
+          received.
+        </t>
+
+        <t>
+          The value of the Transmitter address in the IEEE 802.11 Data
+          Header is set to a 48bit value.  The value of the destination
+          address is 33:33:00:00:00:1 (all-nodes multicast address).
+          The value of the BSS Id field is ff:ff:ff:ff:ff:ff, which is
+          recognized by the network protocol analyzer as being
+          "broadcast".  The Fragment number and sequence number fields
+          are together set to 0x90C6.
+        </t>
+
+        <t>
+          The value of the Organization Code field in the
+          Logical-Link Control Header is set to 0x0, recognized as
+          "Encapsulated Ethernet".  The value of the Type field is
+          0x86DD (hexadecimal 86DD, or otherwise #86DD), recognized
+          as "IPv6".
+        </t>
+
+        <t>
+          A Router Advertisement is periodically sent by the router to
+          multicast group address ff02::1. It is an icmp packet type
+          134. The IPv6 Neighbor Discovery's Router Advertisement
+          message contains an 8-bit field reserved for single-bit flags,
+          as described in <xref target="RFC4861"/>.
+        </t>
+
+        <t>
+          The IPv6 header contains the link local address of the router
+          (source) configured via EUI-64 algorithm, and destination
+          address set to ff02::1.  Recent versions of network protocol
+          analyzers (e.g. Wireshark) provide additional informations for
+          an IP address, if a geolocalization database is present. In
+          this example, the geolocalization database is absent, and the
+          "GeoIP" information is set to unknown for both source and
+          destination addresses (although the IPv6 source and
+          destination addresses are set to useful values). This "GeoIP"
+          can be a useful information to look up the city, country, AS
+          number, and other information for an IP address.
+        </t>
+
+        <t>
+          The Ethernet Type field in the logical-link control header
+          is set to 0x86dd which indicates that the frame transports
+          an IPv6 packet. In the IEEE 802.11 data, the destination
+          address is 33:33:00:00:00:01 which is the corresponding
+          multicast MAC address. The BSS id is a broadcast address of
+          ff:ff:ff:ff:ff:ff. Due to the short link duration between
+          vehicles and the roadside infrastructure, there is no need
+          in IEEE 802.11-OCB to wait for the completion of association
+          and authentication procedures before exchanging data. IEEE
+          802.11-OCB enabled nodes use the wildcard BSSID (a value of
+          all 1s) and may start communicating as soon as they arrive
+          on the communication channel.
+        </t>
+
+      </section>
+      
+      <section title="Capture in Normal Mode">
+	
+        <t>
+          The same IPv6 Router Advertisement packet described above
+          (monitor mode) is captured on the Host, in the Normal mode,
+          and depicted below.
+        </t>
+        <t> 
+          <figure align="center">
+            <artwork align="center">
+              <![CDATA[
+
+
+Ethernet II Header
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                       Destination...                           
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+...Destination                 |           Source...            
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+...Source                                                      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|          Type                 |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+IPv6 Base Header
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|Version| Traffic Class |           Flow Label                  |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|         Payload Length        |  Next Header  |   Hop Limit   |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                                                               +
+|                                                               |
++                         Source Address                        +
+|                                                               |
++                                                               +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                                                               +
+|                                                               |
++                      Destination Address                      +
+|                                                               |
++                                                               +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+Router Advertisement
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|     Type      |     Code      |          Checksum             |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| Cur Hop Limit |M|O|  Reserved |       Router Lifetime         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         Reachable Time                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                          Retrans Timer                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|   Options ...
++-+-+-+-+-+-+-+-+-+-+-+-
+              ]]>
+            </artwork>
+          </figure>
+        </t>
+
+        <t>
+          One notices that the Radiotap Header, the IEEE 802.11 Data
+          Header and the Logical-Link Control Headers are not present.
+          On the other hand, a new header named Ethernet II Header is
+          present.
+        </t>
+
+        <t>
+          The Destination and Source addresses in the Ethernet II header
+          contain the same values as the fields Receiver Address and
+          Transmitter Address present in the IEEE 802.11 Data Header in
+          the "monitor" mode capture.
+        </t>
+        <t>
+          The value of the Type field in the Ethernet II header is
+          0x86DD (recognized as "IPv6"); this value is the same value as
+          the value of the field Type in the Logical-Link Control Header
+          in the "monitor" mode capture.
+        </t>
+        <t>
+          The knowledgeable experimenter will no doubt notice the
+          similarity of this Ethernet II Header with a capture in normal
+          mode on a pure Ethernet cable interface.
+        </t>
+
+        <t>
+          An Adaptation layer is inserted on top of a pure IEEE 802.11
+          MAC layer, in order to adapt packets, before delivering the
+          payload data to the applications.  It adapts 802.11 LLC/MAC
+          headers to Ethernet II headers.  In further detail, this
+          adaptation consists in the elimination of the Radiotap,
+          802.11 and LLC headers, and in the insertion of the Ethernet
+          II header.  In this way, IPv6 runs straight over LLC over
+          the 802.11-OCB MAC layer; this is further confirmed by the
+          use of the unique Type 0x86DD.
+        </t>
+        
+      </section>
+    </section>
+  </back>
+</rfc>
